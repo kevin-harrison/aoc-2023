@@ -28,7 +28,7 @@ fn get_cols(lines: Vec<&str>) -> Vec<String> {
 
 fn get_reflection(rows: Vec<&str>) -> Option<Reflection> {
     // Check for horizonal reflection
-    'next_row: for row in 0..rows.len()-1 {
+    'next_row: for row in 0..rows.len() - 1 {
         let mirror_row = row + 1;
         let to_check = row.min(rows.len() - mirror_row - 1);
         // println!("({row}, {mirror_row}) checking [{}, {}]", row - to_check, mirror_row + to_check);
@@ -43,7 +43,7 @@ fn get_reflection(rows: Vec<&str>) -> Option<Reflection> {
     }
     // Check for vertical reflection
     let cols = get_cols(rows);
-    'next_col: for col in 0..cols.len()-1 {
+    'next_col: for col in 0..cols.len() - 1 {
         let mirror_col = col + 1;
         let to_check = col.min(cols.len() - mirror_col - 1);
         for offset in 0..=to_check {

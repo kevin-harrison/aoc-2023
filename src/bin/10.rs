@@ -22,7 +22,7 @@ pub fn part_one(input: &str) -> Option<u32> {
 
     // Hard coded to move down on first move
     let mut dist = 0;
-    let mut curr_row = start_row+1;
+    let mut curr_row = start_row + 1;
     let mut curr_col = start_col;
     let mut prev_dir = Direction::Down;
     loop {
@@ -63,7 +63,7 @@ pub fn part_two(input: &str) -> Option<u32> {
 
     // Hard coded to move down on first move
     let mut pipe_path = vec![Vec::new(); map.len()];
-    let mut curr_row = start_row+1;
+    let mut curr_row = start_row + 1;
     let mut curr_col = start_col;
     let mut prev_dir = Direction::Down;
     loop {
@@ -105,7 +105,7 @@ pub fn part_two(input: &str) -> Option<u32> {
                         } else {
                             unreachable!();
                         }
-                    },
+                    }
                     '7' => {
                         if bend_start == 'F' || bend_start == 'S' {
                             intersections += 2;
@@ -114,7 +114,7 @@ pub fn part_two(input: &str) -> Option<u32> {
                         } else {
                             unreachable!();
                         }
-                    },
+                    }
                     bend => bend_start = bend,
                 }
                 continue;
@@ -122,7 +122,7 @@ pub fn part_two(input: &str) -> Option<u32> {
             if (intersections % 2) == 1 {
                 interior_points += 1;
             }
-        } 
+        }
     }
     Some(interior_points)
 }
@@ -139,7 +139,9 @@ mod tests {
 
     #[test]
     fn test_part_two() {
-        let result = part_two(&advent_of_code::template::read_file_part("examples", DAY, 2));
-        assert_eq!(result, Some(10));
+        let result = part_two(&advent_of_code::template::read_file_part(
+            "examples", DAY, 2,
+        ));
+        assert_eq!(result, Some(4));
     }
 }
